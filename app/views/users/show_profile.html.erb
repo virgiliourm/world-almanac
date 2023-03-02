@@ -1,0 +1,54 @@
+<h1><%= @user.username %></h1>
+
+<dl>
+  <dt>ID</dt>
+    <dd><%= @user.id %></dd>
+
+  <dt>Name</dt>
+    <dd><%= @user.name %></dd>
+
+  <dt>Age</dt>
+    <dd><%= @user.age %></dd>
+</dl>
+
+<h2><%= @user.username %>'s trips</h2>
+
+<table border="1">
+  <tr>
+    <th>
+      Year
+    </th>
+   
+    <th>
+      Country
+    </th>
+
+    <th>
+      Country facts
+    </th>
+  </tr>
+
+  
+  <% @user.own_visits.each do |trip| %>
+
+  <tr>
+
+    <td>
+      <%= trip.year %>
+    </td>
+
+    <td>
+      <% matching_countries = Country.where( {:id => trip.country_id}) %>
+      <% trip_country = matching_countries.at(0) %>
+
+      <%= trip_country.name %>
+    </td>
+
+    <td>
+      <a href="/countries/<%= trip.country_id %>">Show details</a>
+    </td>
+
+  </tr>
+
+  <% end %>
+</table>

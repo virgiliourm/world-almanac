@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Country #<%= @the_country.id %> details
+      <%= @the_country.name %> details
     </h1>
 
     <div>
@@ -20,10 +20,10 @@
 
     <dl>
       <dt>
-        Name
+        ID
       </dt>
       <dd>
-        <%= @the_country.name %>
+        <%= @the_country.id %>
       </dd>
 
       <dt>
@@ -80,6 +80,16 @@
 
 <hr>
 
+<form action="/insert_visit">
+<div>
+  <label for="visit_year">I was here in:</label>
+  <input id="visit_year" type="text" name="query_year_of_visit" placeholder="What year did you visit?">
+</div>
+
+  <button>Confirm visit</button>
+</form>
+
+<hr>
 
 <div>
   <div>

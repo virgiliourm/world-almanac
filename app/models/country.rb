@@ -13,6 +13,7 @@
 #  updated_at    :datetime         not null
 #
 class Country < ApplicationRecord
+  validates :name, :uniqueness => { :case_sensitive => false }
   has_many(:visits, { :class_name => "Visit", :foreign_key => "country_id", :dependent => :destroy })
 
 end

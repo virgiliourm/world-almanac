@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
 
-
+  # Home page
+  get("/", { :controller => "users", :action => "home"})
 
 
 
@@ -44,6 +45,11 @@ Rails.application.routes.draw do
   #------------------------------
 
   # Routes for the User account:
+
+  # VIEW ALL PAGE
+  get("/users", { :controller => "users", :action => "show_all_users"})
+  get("/users/:the_username", {:controller => "users", :action => "show_profile"})
+  get("/insert_new_user", { :controller => "user_authentication", :action => "create"})
 
   # SIGN UP FORM
   get("/user_sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        

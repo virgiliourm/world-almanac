@@ -2,7 +2,7 @@ class CountriesController < ApplicationController
   def index
     matching_countries = Country.all
 
-    @list_of_countries = matching_countries.order({ :created_at => :desc })
+    @list_of_countries = matching_countries.order({ :created_at => :asc })
 
     render({ :template => "countries/index.html.erb" })
   end
