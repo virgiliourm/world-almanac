@@ -11,6 +11,22 @@
     <dd><%= @user.age %></dd>
 </dl>
 
+<h2>Record a trip!</h2>
+<% if session.fetch(:user_id) == @user.id %>
+<form action="/insert_visit">
+<div>
+  <label for="visit_destination">Where did you go?</label>
+  <input id="visit_destination" type="text" name="query_destination_visited" placeholder="Enter a destination">
+</div>
+<div>
+  <label for="visit_year">When did you go?</label>
+  <input id="visit_year" type="text" name="query_year_visited" placeholder="Enter a year">
+</div>
+  <button>Confirm visit</button>
+</form>
+<hr>
+<% end %>
+
 <h2><%= @user.username %>'s trips</h2>
 
 <table border="1">

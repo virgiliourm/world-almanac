@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   get("/users", { :controller => "users", :action => "show_all_users"})
   get("/users/:the_username", {:controller => "users", :action => "show_profile"})
   get("/insert_new_user", { :controller => "user_authentication", :action => "create"})
+  get("/my_profile", { :controller => "users", :action => "user_own_profile"})
 
   # SIGN UP FORM
   get("/user_sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        

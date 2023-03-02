@@ -80,16 +80,16 @@
 
 <hr>
 
+<% if session.fetch(:user_id) != nil%>
 <form action="/insert_visit">
 <div>
   <label for="visit_year">I was here in:</label>
   <input id="visit_year" type="text" name="query_year_of_visit" placeholder="What year did you visit?">
 </div>
-
   <button>Confirm visit</button>
 </form>
-
 <hr>
+<% end %>
 
 <div>
   <div>

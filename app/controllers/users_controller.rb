@@ -4,6 +4,14 @@ class UsersController < ApplicationController
     render({ :template => "/users/home_page.html.erb"})
   end
 
+  def user_own_profile
+    if session.fetch(:user_id) == nil
+    redirect_to("/user_sign_in")
+    else
+    redirect_to("/users/" + @current_user.username)
+    end 
+  end
+
   def show_all_users
     matching_users = User.all
 
