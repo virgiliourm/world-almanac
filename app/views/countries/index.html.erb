@@ -1,0 +1,166 @@
+<div>
+  <div>
+    <h1>
+      List of all countries
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new country
+    </h2>
+
+    <form action="/insert_country" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="capital_box">
+          Capital
+        </label>
+
+        <input type="text" id="capital_box" name="query_capital">
+      </div>
+
+      <div>
+        <label for="currency_box">
+          Currency
+        </label>
+
+        <input type="text" id="currency_box" name="query_currency">
+      </div>
+
+      <div>
+        <label for="language_box">
+          Language
+        </label>
+
+        <input type="text" id="language_box" name="query_language">
+      </div>
+
+      <div>
+        <label for="head_of_state_box">
+          Head of state
+        </label>
+
+        <input type="text" id="head_of_state_box" name="query_head_of_state">
+      </div>
+
+      <div>
+        <label for="population_box">
+          Population
+        </label>
+
+        <input type="text" id="population_box" name="query_population">
+      </div>
+
+      <button>
+        Create country
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Capital
+        </th>
+
+        <th>
+          Currency
+        </th>
+
+        <th>
+          Language
+        </th>
+
+        <th>
+          Head of state
+        </th>
+
+        <th>
+          Population
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_countries.each do |a_country| %>
+      <tr>
+        <td>
+          <%= a_country.id %>
+        </td>
+
+        <td>
+          <%= a_country.name %>
+        </td>
+
+        <td>
+          <%= a_country.capital %>
+        </td>
+
+        <td>
+          <%= a_country.currency %>
+        </td>
+
+        <td>
+          <%= a_country.language %>
+        </td>
+
+        <td>
+          <%= a_country.head_of_state %>
+        </td>
+
+        <td>
+          <%= a_country.population %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_country.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_country.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/countries/<%= a_country.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

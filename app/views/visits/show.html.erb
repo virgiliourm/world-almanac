@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Visit #<%= @the_visit.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/visits">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_visit/<%= @the_visit.id %>">
+          Delete visit
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Country
+      </dt>
+      <dd>
+        <%= @the_visit.country_id %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_visit.user_id %>
+      </dd>
+
+      <dt>
+        Year
+      </dt>
+      <dd>
+        <%= @the_visit.year %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_visit.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_visit.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit visit
+    </h2>
+
+    <form action="/modify_visit/<%= @the_visit.id %>"  method="post" >
+      <div>
+        <label for="country_id_box">
+          Country
+        </label>
+
+        <input type="text" id="country_id_box" name="query_country_id" value="<%= @the_visit.country_id %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_visit.user_id %>">
+      </div>
+
+      <div>
+        <label for="year_box">
+          Year
+        </label>
+
+        <input type="text" id="year_box" name="query_year" value="<%= @the_visit.year %>">
+      </div>
+
+      <button>
+        Update visit
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

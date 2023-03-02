@@ -1,0 +1,146 @@
+<div>
+  <div>
+    <h1>
+      Country #<%= @the_country.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/countries">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_country/<%= @the_country.id %>">
+          Delete country
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_country.name %>
+      </dd>
+
+      <dt>
+        Capital
+      </dt>
+      <dd>
+        <%= @the_country.capital %>
+      </dd>
+
+      <dt>
+        Currency
+      </dt>
+      <dd>
+        <%= @the_country.currency %>
+      </dd>
+
+      <dt>
+        Language
+      </dt>
+      <dd>
+        <%= @the_country.language %>
+      </dd>
+
+      <dt>
+        Head of state
+      </dt>
+      <dd>
+        <%= @the_country.head_of_state %>
+      </dd>
+
+      <dt>
+        Population
+      </dt>
+      <dd>
+        <%= @the_country.population %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_country.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_country.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit country
+    </h2>
+
+    <form action="/modify_country/<%= @the_country.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_country.name %>">
+      </div>
+
+      <div>
+        <label for="capital_box">
+          Capital
+        </label>
+
+        <input type="text" id="capital_box" name="query_capital" value="<%= @the_country.capital %>">
+      </div>
+
+      <div>
+        <label for="currency_box">
+          Currency
+        </label>
+
+        <input type="text" id="currency_box" name="query_currency" value="<%= @the_country.currency %>">
+      </div>
+
+      <div>
+        <label for="language_box">
+          Language
+        </label>
+
+        <input type="text" id="language_box" name="query_language" value="<%= @the_country.language %>">
+      </div>
+
+      <div>
+        <label for="head_of_state_box">
+          Head of state
+        </label>
+
+        <input type="text" id="head_of_state_box" name="query_head_of_state" value="<%= @the_country.head_of_state %>">
+      </div>
+
+      <div>
+        <label for="population_box">
+          Population
+        </label>
+
+        <input type="text" id="population_box" name="query_population" value="<%= @the_country.population %>">
+      </div>
+
+      <button>
+        Update country
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
