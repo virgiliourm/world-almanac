@@ -27,7 +27,7 @@ class VisitsController < ApplicationController
       the_visit.save
       redirect_to("/visits", { :notice => "Visit created successfully." })
     else
-      redirect_to("/users", { :alert => the_visit.errors.full_messages.to_sentence })
+      redirect_to("/visits", { :alert => the_visit.errors.full_messages.to_sentence })
     end
   end
 

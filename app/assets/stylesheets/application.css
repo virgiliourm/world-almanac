@@ -12,3 +12,14 @@
  *
  *= require_self
  */
+
+ *{
+  background-color: rgb(223, 204, 174);
+ }
+
+ .home_pic {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  background-color: transparent;
+}

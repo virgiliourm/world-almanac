@@ -1,17 +1,24 @@
+<style>
+.visits-h1 {
+  
+}
+</style>
 <div>
   <div>
     <h1>
+    <div class="visits-h1">
       List of all visits
+    </div>
     </h1>
   </div>
 </div>
 
-<hr>
-
+<% if session.fetch(:user_id) != nil %>
+  <hr>
 <div>
   <div>
     <h2>
-      Add a new visit
+      Log your visits! 
     </h2>
 
     <form action="/insert_visit" method="post">
@@ -21,14 +28,6 @@
         </label>
 
         <input type="text" id="country_id_box" name="query_country_id">
-      </div>
-
-      <div>
-        <label for="user_id_box">
-          User ID
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
       </div>
 
       <div>
@@ -45,6 +44,9 @@
     </form>
   </div>
 </div>
+<% else %>
+Sign up or log in to start logging visits!
+<% end %>
 
 <hr>
 <div>

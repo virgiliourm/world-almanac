@@ -1,12 +1,25 @@
 
 <h1><%= @current_user.username %></h1>
+<% @user_destinations = Array.new %>
+
+<% @current_user.own_visits.each do |trip| %>
+  <% @user_destinations.push(trip.country_id) %>
+<% end %>
+
+
+<% if @user_destinations.uniq.count() == 1 %>
+<h2> <%= @current_user.username %> has been on <%= @current_user.own_visits.count() %> trips to <%= @user_destinations.uniq.count() %> country! </h2>
+<% elsif @user_destinations.uniq.count() == 0 %>
+<h2> <%= @current_user.username %> hasn't been on any trips yet! </h2>
+<% else %>
+<h2> <%= @current_user.username %> has been on <%= @current_user.own_visits.count() %> trips to <%= @user_destinations.uniq.count() %> different countries! </h2>
+<% end %>
+
+
 
 <dl>
-  <dt>ID</dt>
+  <dt>User ID</dt>
     <dd><%= @current_user.id %></dd>
-
-  <dt>Name</dt>
-    <dd><%= @current_user.name %></dd>
 
   <dt>Age</dt>
     <dd><%= @current_user.age %></dd>
@@ -19,6 +32,10 @@
     <h2>
       Add a new trip
     </h2>
+
+    <p>
+    Refer to country ID's <a href="/countries/" target="blank">here</a>
+    </p>
 
     <form action="/insert_visit" method="post">
       <div>
