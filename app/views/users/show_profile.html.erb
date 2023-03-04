@@ -79,6 +79,11 @@
     <th>
       Country facts
     </th>
+
+    <th>
+      Trip info
+    </th>
+
   </tr>
 
   
@@ -98,7 +103,11 @@
     </td>
 
     <td>
-      <a href="/countries/<%= trip.country_id %>">Show details</a>
+      <a href="/countries/<%= trip.country_id %>">Learn more about <%= trip_country.name %> </a>
+    </td>
+
+     <td>
+      <a href="/visits/<%= trip.id %>">Visit details</a>
     </td>
 
   </tr>

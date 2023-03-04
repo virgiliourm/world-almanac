@@ -14,7 +14,7 @@
 </div>
 
 <% if session.fetch(:user_id) != nil %>
-  <hr>
+<hr>
 <div>
   <div>
     <h2>
@@ -53,8 +53,9 @@ Sign up or log in to start logging visits!
   <div>
     <table border="1">
       <tr>
+
         <th>
-          ID
+          Country
         </th>
 
         <th>
@@ -62,7 +63,7 @@ Sign up or log in to start logging visits!
         </th>
 
         <th>
-          User ID
+          User
         </th>
 
         <th>
@@ -84,7 +85,7 @@ Sign up or log in to start logging visits!
       <% @list_of_visits.each do |a_visit| %>
       <tr>
         <td>
-          <%= a_visit.id %>
+          <%= Country.where({ :id => a_visit.country_id}).at(0).name %>
         </td>
 
         <td>
@@ -92,7 +93,7 @@ Sign up or log in to start logging visits!
         </td>
 
         <td>
-          <%= a_visit.user_id %>
+          <%= User.where({ :id => a_visit.user_id }).at(0).username %>
         </td>
 
         <td>

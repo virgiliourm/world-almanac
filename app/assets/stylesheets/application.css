@@ -14,10 +14,26 @@
  */
 
  *{
-  background-color: rgb(223, 204, 174);
+  background-color: rgb(234, 228, 218);
+ }
+
+ .nav_buttons {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+ }
+
+ .each_nav_button {
+  flex-grow: 1;
+  border: thin rgb(79, 76, 20) solid;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: larger;
  }
 
  .home_pic {
+  padding-top: 20px;
   width: 64px;
   height: 64px;
   object-fit: cover;

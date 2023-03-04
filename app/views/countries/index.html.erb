@@ -6,8 +6,8 @@
   </div>
 </div>
 
+<% if session.fetch(:user_id) != nil %>
 <hr>
-
 <div>
   <div>
     <h2>
@@ -61,6 +61,9 @@
     </form>
   </div>
 </div>
+<% else %>
+Sign up or log in to start logging visits!
+<% end %>
 
 <hr>
 <div>

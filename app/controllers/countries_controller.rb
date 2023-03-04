@@ -23,7 +23,6 @@ class CountriesController < ApplicationController
     the_country.capital = params.fetch("query_capital")
     the_country.currency = params.fetch("query_currency")
     the_country.language = params.fetch("query_language")
-    the_country.head_of_state = params.fetch("query_head_of_state")
     the_country.population = params.fetch("query_population")
 
     if the_country.valid?
@@ -42,7 +41,6 @@ class CountriesController < ApplicationController
     the_country.capital = params.fetch("query_capital")
     the_country.currency = params.fetch("query_currency")
     the_country.language = params.fetch("query_language")
-    the_country.head_of_state = params.fetch("query_head_of_state")
     the_country.population = params.fetch("query_population")
 
     if the_country.valid?
