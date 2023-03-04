@@ -13,9 +13,19 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
+    <style>
+    .home_pic {
+      width: 16px;
+      height: 16px;
+      object-fit: cover;
+      
+    }
+    </style>
+
   </head>
 
   <body>
+
     <ul>
     <% if session.fetch(:user_id) != nil%>
     <li>
@@ -48,7 +58,19 @@
 
   </ul>
 
+  <% if notice.present? %>
+    <div style="border: thin green solid; color: green">
+      <%= notice %>
+    </div>
+  <% end %>
 
-    <%= yield %>
+  <% if alert.present? %>
+    <div style="border: thin red solid;">
+      <%= alert %>
+    </div>
+  <% end %>
+
+
+  <%= yield %>
   </body>
 </html>

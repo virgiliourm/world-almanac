@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     end 
   end
 
+  def see_errors
+
+    render({ :template => "/users/error_summary.html.erb"})
+  end
+
   def show_all_users
     matching_users = User.all
 
@@ -22,7 +27,8 @@ class UsersController < ApplicationController
 
   def show_profile
     user_username = params.fetch("the_username")
-    @user = User.where({ :username => user_username}).at(0)
+
+    @current_user = User.where({ :username => user_username}).at(0)
 
     render({ :template => "/users/show_profile.html.erb" })
   end

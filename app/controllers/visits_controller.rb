@@ -20,14 +20,14 @@ class VisitsController < ApplicationController
   def create
     the_visit = Visit.new
     the_visit.country_id = params.fetch("query_country_id")
-    the_visit.user_id = params.fetch("query_user_id")
+    the_visit.user_id = session.fetch(:user_id)
     the_visit.year = params.fetch("query_year")
 
     if the_visit.valid?
       the_visit.save
       redirect_to("/visits", { :notice => "Visit created successfully." })
     else
-      redirect_to("/visits", { :alert => the_visit.errors.full_messages.to_sentence })
+      redirect_to("/users", { :alert => the_visit.errors.full_messages.to_sentence })
     end
   end
 

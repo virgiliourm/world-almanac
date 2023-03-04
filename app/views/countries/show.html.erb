@@ -48,43 +48,29 @@
       </dd>
 
       <dt>
-        Head of state
-      </dt>
-      <dd>
-        <%= @the_country.head_of_state %>
-      </dd>
-
-      <dt>
         Population
       </dt>
       <dd>
         <%= @the_country.population %>
       </dd>
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_country.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_country.updated_at) %> ago
-      </dd>
     </dl>
   </div>
 </div>
 
 <hr>
 
-<% if session.fetch(:user_id) != nil%>
-<form action="/insert_visit">
+<% if session.fetch(:user_id) != nil %>
+
+<h2>Log a visit!</h2>
+<form action="/insert_visit" method="post">
 <div>
   <label for="visit_year">I was here in:</label>
-  <input id="visit_year" type="text" name="query_year_of_visit" placeholder="What year did you visit?">
+  <input id="visit_year" type="text" name="query_year" placeholder="What year did you visit?">
+</div>
+<div>
+  <label for="visit_id"><%= @the_country.name %> ID - don't change! </label>
+  <input id="visit_id" type="text" name="query_country_id" placeholder="What year did you visit?" value=<%= @the_country.id%> >
 </div>
   <button>Confirm visit</button>
 </form>
@@ -128,14 +114,6 @@
         </label>
 
         <input type="text" id="language_box" name="query_language" value="<%= @the_country.language %>">
-      </div>
-
-      <div>
-        <label for="head_of_state_box">
-          Head of state
-        </label>
-
-        <input type="text" id="head_of_state_box" name="query_head_of_state" value="<%= @the_country.head_of_state %>">
       </div>
 
       <div>

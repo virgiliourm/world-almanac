@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
   # CREATE
   post("/insert_visit", { :controller => "visits", :action => "create" })
+
+  post("/insert_new_visit", { :controller => "visits", :action => "create_from_country_page" })
           
   # READ
   get("/visits", { :controller => "visits", :action => "index" })
@@ -76,5 +78,6 @@ Rails.application.routes.draw do
   get("/user_sign_out", { :controller => "user_authentication", :action => "destroy_cookies" })
              
   #------------------------------
-
+  #TROUBLESHOOT
+  get("/error_page", { :controller => "users", :action => "see_errors" })
 end

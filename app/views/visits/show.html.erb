@@ -23,11 +23,25 @@
         Country
       </dt>
       <dd>
+        <%= Country.where({ :id => @the_visit.country_id}).at(0).name %> 
+      </dd>
+
+      <dt>
+        Country ID
+      </dt>
+      <dd>
         <%= @the_visit.country_id %>
       </dd>
 
       <dt>
         User
+      </dt>
+      <dd>
+        <%= User.where({ :id => @the_visit.user_id}).at(0).username %>
+      </dd>
+
+      <dt>
+        User ID
       </dt>
       <dd>
         <%= @the_visit.user_id %>
