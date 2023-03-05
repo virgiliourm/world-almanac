@@ -73,7 +73,7 @@
 
 <hr>
 
-
+<% if session.fetch(:user_id) == @the_visit.user_id %>
 <div>
   <div>
     <h2>
@@ -113,3 +113,5 @@
 </div>
 
 <hr>
+
+<% end %>
