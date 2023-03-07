@@ -10,13 +10,14 @@
           Go back
         </a>
       </div>
-
+    <% if session.fetch(:user_id) != nil %>
       <div>
         <a href="/delete_country/<%= @the_country.id %>">
           Delete country
         </a>
       </div>
     </div>
+    <% end %>
 
     <dl>
       <dt>

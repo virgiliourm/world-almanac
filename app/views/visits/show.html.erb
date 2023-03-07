@@ -3,7 +3,7 @@
     <h1>
       Visit #<%= @the_visit.id %> details
     </h1>
-
+  
     <div>
       <div>
         <a href="/visits">
@@ -11,12 +11,14 @@
         </a>
       </div>
 
+    <% if session.fetch(:user_id) != nil %>
       <div>
         <a href="/delete_visit/<%= @the_visit.id %>">
           Delete visit
         </a>
       </div>
     </div>
+    <% end %>
 
     <dl>
       <dt>
